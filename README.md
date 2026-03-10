@@ -1,28 +1,93 @@
-Reynolds Number (Re): 7376.654064471032
+# Turbulence & PIV Data Analysis
 
-Kolmogorov Length Scale (eta): 0.0017136408539106403
+## Overview
+This repository contains comprehensive analysis of turbulence and Particle Image Velocimetry (PIV) datasets, focusing on advanced fluid dynamics characterization. The project demonstrates proficiency in scientific computing, data analysis, and computational fluid dynamics (CFD).
 
-Kolmogorov Time Scale (tau_eta): 0.015873324195630208
+## Project Objectives
+- Analyze isotropic turbulent flow using high-resolution velocity field data
+- Compute critical turbulence metrics and Kolmogorov scales
+- Perform statistical analysis of velocity fluctuations and vorticity
+- Derive insights from grid-level resolution and flow dynamics
 
-Kolmogorov Velocity Scale (u_eta): 0.10795727679917173
+## Key Turbulence Analysis Outputs
 
-Grid Cell Size (dx): 0.006135923151542565
+### Flow Characteristics
+| Metric | Value |
+|--------|-------|
+| **Reynolds Number (Re)** | 7376.65 |
+| **Kolmogorov Length Scale (η)** | 0.00171 |
+| **Kolmogorov Time Scale (τ_η)** | 0.01587 s |
+| **Kolmogorov Velocity Scale (u_η)** | 0.1080 |
+| **Grid Cell Size (dx)** | 0.00614 |
+| **Grid Resolution (dx/η)** | 3.58 |
 
-Grid Cell Size / Kolmogorov Length (dx / eta): 3.5806354275109555
+### Statistical Moments (Skewness, Kurtosis)
 
-Skewness and kurtosis
+**Velocity Components:**
+- **u-component**: Skewness = 0.172, Kurtosis = 3.045
+- **v-component**: Skewness = 0.091, Kurtosis = 2.591
+- **w-component**: Skewness = -0.220, Kurtosis = 2.583
 
-for u-component: 0.17190926261032094 3.0454124734977976 
+**Turbulence Properties:**
+- **Vorticity**: Skewness = 0.315, Kurtosis = 12.617
+- **Velocity Gradient (du/dx)**: Skewness = -0.599, Kurtosis = 7.597
+- **Velocity Gradient (dv/dy)**: Skewness = -0.477, Kurtosis = 7.152
+- **Enstrophy**: Skewness = 33.134, Kurtosis = 4385.617
 
-for v-component: 0.09136939062611266 2.5911103506699993 
+## Repository Structure
+```
+Data-Analysis-/
+├── PIV_data_anlaysis.py           # PIV data processing and analysis
+├── Turbulence_data_analysis_1.py  # Initial turbulence metrics computation
+├── Turbulence_data_analysis_2.py  # Advanced statistical analysis
+├── Turbulence_data_analysis_3.py  # Comprehensive turbulence characterization
+├── isotropic1024_slice.npz        # High-resolution velocity field dataset
+├── PIV_results/                   # PIV analysis outputs
+├── Turbulence_results/            # Turbulence analysis results
+└── DATA/                          # Additional data directory
+```
 
-for w-component: -0.2201803135242397 2.5829767047988765 
+## Technologies & Skills Demonstrated
+- **Languages**: Python
+- **Scientific Computing**: NumPy, SciPy
+- **Data Analysis**: Statistical analysis, signal processing
+- **Domain Expertise:** 
+  - Computational Fluid Dynamics (CFD)
+  - Turbulence modeling and analysis
+  - Flow visualization and characterization
+  - Kolmogorov cascade theory
 
-for vorticity: 0.31489896854148464 12.617191594995774
+## Key Analyses Performed
+1. **Kolmogorov Scale Computation** - Derived microscale properties from high-Reynolds number flow
+2. **Statistical Moments Analysis** - Calculated skewness and kurtosis for velocity and vorticity fields
+3. **Grid Resolution Assessment** - Evaluated DNS/LES grid adequacy relative to Kolmogorov scales
+4. **Enstrophy Characterization** - Analyzed vorticity distribution and higher-order statistics
 
-for velocity gradient:
+## Installation
+```bash
+git clone https://github.com/ak587/Data-Analysis-.git
+cd Data-Analysis-
+pip install numpy scipy matplotlib seaborn pandas
+```
 
-du_dx: -0.5993991116440137 7.597184481221253
+## Usage
+Run individual analysis scripts to reproduce results:
+```bash
+python Turbulence_data_analysis_1.py
+python Turbulence_data_analysis_2.py
+python Turbulence_data_analysis_3.py
+python PIV_data_anlaysis.py
+```
 
-dv_dy: -0.47669446815237393 7.1515650745402555
-for enstrophy: 33.13396373310561 4385.617205520081
+Results are saved to `Turbulence_results/` and `PIV_results/` directories.
+
+## What This Demonstrates
+✓ **Advanced Technical Skills**: Proficiency in scientific computing and fluid dynamics  
+✓ **Data Analysis Expertise**: Statistical characterization of complex datasets  
+✓ **Scientific Rigor**: Proper computation of turbulence metrics following established theory  
+✓ **Problem-Solving**: Multi-stage analysis pipeline for comprehensive flow characterization  
+✓ **Python Mastery**: Well-structured code for scientific applications  
+
+---
+
+**Contact**: [Your Name] | [Your Email] | [LinkedIn Profile]
