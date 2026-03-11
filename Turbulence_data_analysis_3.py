@@ -220,7 +220,6 @@ plt.grid(True, which="both")
 plt.legend()
 plt.title("PDF of Eigenvalues of the Velocity Gradient Tensor")
 plt.savefig("eigenvalue_pdf.png", dpi=300)
-plt.show()
 
 # (Q.1.3): Proof for $\sum \lambda_i = 0$
 print("Sum of eigen values =", np.mean(P))
@@ -253,7 +252,6 @@ plt.title(r'$\frac{R}{R_{rms}}$')
 
 plt.suptitle('Q and R Fields')
 plt.savefig("Q_R_normalized.png", dpi=300)
-plt.show()
 
 # (Q.1.5): Q-R scatter plot with discriminant curve
 omega_x = dw_dy - dv_dz
@@ -280,7 +278,6 @@ plt.xlim(-150, 150)
 plt.ylim(-50, 50)
 plt.title('Q-R Scatter with Discriminant Curve')
 plt.savefig("Q_R_scatter.png", dpi=300)
-plt.show()
 
 # Part 2: Lagrangian Aspects of Turbulence
 print("Part 2: Lagrangian Aspects of Turbulence")
@@ -327,7 +324,6 @@ for num_particles in particles:
             
     plt.tight_layout()
     plt.savefig(f"particle_trajectories_{num_particles}.png", dpi=300)
-    plt.show()
 
 # Q.2.3: Mean-Square-Displacement (MSD)
 displacement_data = []
@@ -348,7 +344,6 @@ plt.grid(True, which="both")
 plt.legend()
 plt.title(r'Mean Squared Displacement (MSD) vs Time (at Np = $10^4$)')
 plt.savefig("mean_squared_displacement.png")
-plt.show()
 
 # Q.2.4: Calculating the turbulent diffusivity
 print("Turbulent diffusivity =", slope)
@@ -378,7 +373,6 @@ plt.grid(True)
 plt.legend()
 plt.title(r'Pair Trajectories(at Np = 20, $\epsilon = 0.5\Delta x$, T = 10)')
 plt.savefig("pair_trajectories.png")
-plt.show()
 
 # Q.2.5b: pair separation of trajectories on loglog scale
 i=0
@@ -404,7 +398,6 @@ plt.grid(True, which="both")
 plt.legend()
 plt.title(r'Pair Separation of Trajectories (Log-Log Scale)(at Np = $10^4$)')    
 plt.savefig("pair separation trajectories (Log-Log Scale).png", dpi=300)
-plt.show()
 
 # Q.2.5c: pair separation of trajectories on Semilog scale
 i = 0
@@ -425,4 +418,20 @@ plt.legend()
 plt.grid(True, which="both")
 plt.title(r'Pair Separation of Trajectories (Semilog Scale)(at Np = $10^4$)')
 plt.savefig("pair_separation_trajectories (Semilog scale).png", dpi=300)
-plt.show()
+
+# Plot of PDFs 
+plt.figure(figsize=(8,6))
+for lambdas, label, color in zip([lambda1, lambda2, lambda3], [r'$\lambda_1$', r'$\lambda_2$', r'$\lambda_3$'], ['r', 'g', 'b']):
+    counts, bins = np.histogram(lambdas, bins=200, density=True)
+    bin_centers = 0.5 * (bins[:-1] + bins[1:])
+    # Mask out very small values
+    masked_counts = np.where(counts > 1e-7, counts, np.nan)
+    plt.semilogy(bin_centers, masked_counts, label=label, color=color)
+
+plt.xlabel(r'Eigenvalue ($\lambda$)$\rightarrow$')
+plt.ylabel(r'PDF (log scale)$\rightarrow$')
+plt.xlim(0, 100)
+plt.grid(True, which="both")
+plt.legend()
+plt.title("PDF of Eigenvalues of the Velocity Gradient Tensor")
+plt.savefig("eigenvalue_pdf.png", dpi=300)
