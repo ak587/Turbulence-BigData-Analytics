@@ -18,7 +18,7 @@ The engine is modularized into three distinct physics-data pipelines:
 
 ### 1. Eulerian Field Processing & Tensor Calculus (`Turbulence_data_analysis-1.py`)
 Extracts fundamental flow topology from raw velocity fields without relying on commercial software.
-* **Velocity Gradient Tensor:** Computes spatial derivatives ($\partial u_i / \partial x_j$) across the $1024^3$ domain using vectorized finite differencing.
+* **Velocity Gradient Tensor:** Computes spatial derivatives ($\partial u_i / \partial x_j$) across the 1024x1024x3 domain using vectorized finite differencing.
 * **Flow Topology:** Calculates the invariant $P, Q, R$ matrices to classify flow regions (e.g., strain-dominated vs. rotation-dominated) via **Q-R scatter diagrams**.
 * **Statistical Intermittency:** Evaluates non-Gaussian behavior in turbulence via high-order moments (Skewness/Kurtosis) of enstrophy and velocity gradients.
 
@@ -48,9 +48,9 @@ Visualizes the invariant map of the velocity gradient tensor. The "teardrop" sha
 Automated FFT mapping of the kinetic energy spectrum, clearly identifying the integral scale, the $-5/3$ inertial sub-range, and the dissipation scales.
 > ![1D_Energy_Spectrum](Results/Turbulence_data_analysis-2/1D_Energy_Spectrum.png)
 
-### 3. Chaotic Dispersion (Richardson Pair Separation)
-Log-log and semi-log scaling of particle pair separation over time, mathematically proving the exponential divergence (Lyapunov) of neighboring particles in a turbulent field.
-> ![pair_separation_trajectories](Results/Turbulence_data_analysis-3/pair_separation_trajectories_Log-Log_Scale.png)
+### 3. Lagrangian Particle Tracking
+Tracks 10,000+ fluid particles simultaneously to characterize turbulent flow structures.
+> ![Lagrangian Particle Tracking](Results/Turbulence_data_analysis-3/particle_trajectories_1000.png)
 
 ---
 
