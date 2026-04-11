@@ -8,7 +8,7 @@
 ## The Computational Challenge
 Analyzing Direct Numerical Simulation (DNS) data of Homogeneous Isotropic Turbulence (HIT) presents a massive "Big Data" challenge in mechanical engineering. 
 
-Processing a **$1024^3$ grid (over 1 Billion volumetric cells)** using standard nested `for` loops in Python will cause memory overloads and take days to execute. This repository houses a **highly-optimized, fully vectorized Python analytics engine** designed to ingest massive DNS arrays, compute complex tensor mathematics, and execute Lagrangian particle tracking in minutes.
+Processing a **$1024x1024x3$ grid (over 3 Million volumetric cells)** using standard nested `for` loops in Python will cause memory overloads and take days to execute. This repository houses a **highly-optimized, fully vectorized Python analytics engine** designed to ingest massive DNS arrays, compute complex tensor mathematics, and execute Lagrangian particle tracking in minutes.
 
 ---
 
